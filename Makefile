@@ -6,16 +6,16 @@ run-kibana:
 	docker rm -f kibana || true
 	docker run --name kibana --link elasticsearch:elasticsearch -e ELASTICSEARCH_USERNAME='elastic' -e ELASTICSEARCH_PASSWORD='changeme' -p 8081:5601 -d docker.elastic.co/kibana/kibana:5.4.0
 
-build-proxy:
-	docker rm -f proxy || true
-	docker build -t opstree/elk -f proxy/Dockerfile proxy
-
-run-proxy:
-	docker run --name proxy --link kibana:kibana -p 8080:80 -it opstree/elk
-
 build-logstash:
 	docker build -t opstree/logstash -f Logstash/Dockerfile Logstash
 
 run-logstash:
 	docker rm -f logstash || true
 	docker run --name logstash  --link elasticsearch:elasticsearch -it opstree/logstash
+
+build-shipper:
+	docker build -t opstree/shipper -f shipper/Dockerfile shipper
+
+run-shipper:
+	docker rm -f shipper || true
+	docker run --name shipper  --link logstash:logstash -it opstree/shipper
