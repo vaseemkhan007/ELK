@@ -11,7 +11,7 @@ build-logstash:
 
 run-logstash:
 	docker rm -f logstash || true
-	docker run --name logstash  --link elasticsearch:elasticsearch -d opstree/logstash
+	docker run --name logstash -p 8089:5044 --link elasticsearch:elasticsearch -d opstree/logstash
 
 build-shipper:
 	docker build -t opstree/shipper -f shipper/Dockerfile shipper
