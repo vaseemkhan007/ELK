@@ -21,6 +21,8 @@ run-shipper:
 	docker run --name shipper  --link logstash:logstash -d opstree/shipper
 
 make run-elk:
+	make build-logstash
+	make build-shipper
 	make run-es
 	make run-logstash
 	make run-kibana
