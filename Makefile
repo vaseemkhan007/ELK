@@ -25,11 +25,11 @@ generate-service-logs:
 	docker exec -it shipper bash -c "./generateLog.sh 10"
 
 generate-apache-logs:
-	docker cp shipper/services.log shipper:/tmp/sample.log
+	docker cp shipper/apache.log shipper:/tmp/sample.log
 	docker exec -it shipper bash -c "./generateLog.sh 10"
 
 generate-nginx-logs:
-	docker cp shipper/services.log shipper:/tmp/sample.log
+	docker cp shipper/nginx.log shipper:/tmp/sample.log
 	docker exec -it shipper bash -c "./generateLog.sh 10"
 
 make run-elk:
