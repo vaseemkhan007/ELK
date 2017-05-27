@@ -22,15 +22,19 @@ run-shipper:
 
 generate-service-logs:
 	docker cp shipper/services.log shipper:/tmp/sample.log
-	docker exec -it shipper bash -c "./generateLog.sh 10"
+	docker exec -it shipper bash -c "./generateLog.sh 10 shipper/services.log"
 
 generate-apache-logs:
 	docker cp shipper/apache.log shipper:/tmp/sample.log
-	docker exec -it shipper bash -c "./generateLog.sh 10"
+	docker exec -it shipper bash -c "./generateLog.sh 10 apache.log"
 
 generate-nginx-logs:
 	docker cp shipper/nginx.log shipper:/tmp/sample.log
-	docker exec -it shipper bash -c "./generateLog.sh 10"
+	docker exec -it shipper bash -c "./generateLog.sh 10 nginx.log"
+
+generate-uwsgi-logs:
+	docker cp shipper/uwsgi.log shipper:/tmp/uwsgi.log
+	docker exec -it shipper bash -c "./generateLog.sh 10 uwsgi.log"
 
 make run-elk:
 	make build-logstash
