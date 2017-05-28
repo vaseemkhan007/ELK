@@ -21,15 +21,15 @@ run-shipper:
 	docker run --name shipper  --link logstash:logstash -d opstree/shipper
 
 generate-service-logs:
-	docker cp shipper/services.log shipper:/tmp/sample.log
-	docker exec -it shipper bash -c "./generateLog.sh 10 shipper/services.log"
+	docker cp shipper/services.log shipper:/tmp/services.log
+	docker exec -it shipper bash -c "./generateLog.sh 10 services.log"
 
 generate-apache-logs:
-	docker cp shipper/apache.log shipper:/tmp/sample.log
+	docker cp shipper/apache.log shipper:/tmp/apahe.log
 	docker exec -it shipper bash -c "./generateLog.sh 10 apache.log"
 
 generate-nginx-logs:
-	docker cp shipper/nginx.log shipper:/tmp/sample.log
+	docker cp shipper/nginx.log shipper:/tmp/nginx.log
 	docker exec -it shipper bash -c "./generateLog.sh 10 nginx.log"
 
 generate-uwsgi-logs:
