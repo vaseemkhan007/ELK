@@ -1,6 +1,9 @@
+build-es:
+	docker build -t opstree/es -f elasticsearch/Dockerfile elasticsearch
+
 run-es:
 	docker rm -f elasticsearch || true
-	docker run -d --name elasticsearch -e "bootstrap_memory_lock=true" --ulimit memlock=-1:-1 -e ES_JAVA_OPTS="-Xms1g -Xmx2g" -e "http.host=0.0.0.0" -e "transport.host=127.0.0.1" docker.elastic.co/elasticsearch/elasticsearch:5.4.0
+	docker run -d --name elasticsearch --ulimit memlock=-1:-1 opstree/es
 
 run-kibana:
 	docker rm -f kibana || true
@@ -18,7 +21,7 @@ build-shipper:
 
 run-shipper:
 	docker rm -f shipper || true
-	docker run --name shipper  --link logstash:logstash -d opstree/shipper
+	docker run --name shipper  --link logstash:logstash --link elasticsearch:elasticsearch -d opstree/shipper
 
 generate-service-logs:
 	docker cp shipper/services.log shipper:/tmp/services.log

@@ -76,19 +76,18 @@ filebeat.modules:
     #var.paths:
 
 #-------------------------------- Nginx Module -------------------------------
-- module: nginx
+#- module: nginx
   # Access logs
-  access:
-    enabled: true
+  #access:
+    #enabled: true
 
     # Set custom paths for the log files. If left empty,
     # Filebeat will choose the paths depending on your OS.
-    var.paths "access:
-    var.paths: ["/var/log/nginx.log"]
+    #var.paths:
 
   # Error logs
-  error:
-    enabled: true
+  #error:
+    #enabled: true
 
     # Set custom paths for the log files. If left empty,
     # Filebeat will choose the paths depending on your OS.
@@ -113,10 +112,8 @@ filebeat.prospectors:
 
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
-#    - /var/log/nginx.log
-    - /var/log/uwsgi.log
-#    - /var/log/apache.log
-#    - /var/log/services.log
+    - /var/log/*.log
+    - /var/log/dpkg.log
     #- c:\programdata\elasticsearch\logs\*
 
   # Exclude lines. A list of regular expressions to match. It drops the lines that are
@@ -175,20 +172,19 @@ filebeat.prospectors:
 # Multiple outputs may be used.
 
 #-------------------------- Elasticsearch output ------------------------------
-output.elasticsearch:
+#output.elasticsearch:
   # Array of hosts to connect to.
-  hosts: ["elasticsearch:9200"]
+  #hosts: ["elasticsearch:9200"]
 
   # Optional protocol and basic auth credentials.
-  protocol: "http"
-  username: "elastic"
-  password: "changeme"
-  template.enabled: false
+  #protocol: "https"
+  #username: "elastic"
+  #password: "changeme"
 
 #----------------------------- Logstash output --------------------------------
-#output.logstash:
+output.logstash:
   # The Logstash hosts
-#  hosts: ["logstash:5044"]
+  hosts: ["logstash:5044"]
 
   # Optional SSL. By default is off.
   # List of root certificates for HTTPS server verifications
