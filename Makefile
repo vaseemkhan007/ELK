@@ -39,6 +39,10 @@ generate-uwsgi-logs:
 	docker cp shipper/uwsgi.log shipper:/tmp/uwsgi.log
 	docker exec -it shipper bash -c "./generateLog.sh 10 uwsgi.log"
 
+generate-auth-logs:
+	docker cp shipper/auth.log shipper:/tmp/auth.log
+	docker exec -it shipper bash -c "./dynamicGenerateLog.sh 10 auth.log"
+
 make run-elk:
 	make build-logstash
 	make build-shipper

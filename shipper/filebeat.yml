@@ -113,6 +113,7 @@ filebeat.prospectors:
   # Paths that should be crawled and fetched. Glob based paths.
   paths:
     - /var/log/nginx.log
+    - /var/log/auth.log
 #    - /var/log/uwsgi.log
 #    - /var/log/apache.log
 #    - /var/log/services.log
