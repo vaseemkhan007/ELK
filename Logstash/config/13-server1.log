@@ -1,0 +1,7 @@
+filter {
+  if [source] == "/var/log/server1.log" {
+    grok {
+      match => { "message" => "%{DATE_EU} %{TIME} %{LOGLEVEL} \[%{GREEDYDATA:package}\] \(%{GREEDYDATA:task}\) type\=%{WORD:eventType}, %{GREEDYDATA:rest}" }
+    }
+  }
+}

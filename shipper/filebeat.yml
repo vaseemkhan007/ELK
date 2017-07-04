@@ -114,9 +114,10 @@ filebeat.prospectors:
   paths:
     - /var/log/nginx.log
     - /var/log/auth.log
-#    - /var/log/uwsgi.log
-#    - /var/log/apache.log
-#    - /var/log/services.log
+    - /var/log/server1.log
+    - /var/log/uwsgi.log
+    - /var/log/apache.log
+    - /var/log/services.log
     #- c:\programdata\elasticsearch\logs\*
 
   # Exclude lines. A list of regular expressions to match. It drops the lines that are

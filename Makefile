@@ -43,6 +43,10 @@ generate-auth-logs:
 	docker cp shipper/auth.log shipper:/tmp/auth.log
 	docker exec -it shipper bash -c "./dynamicGenerateLog.sh 100 auth.log"
 
+generate-server1-logs:
+	docker cp shipper/server1.log shipper:/tmp/server1.log
+	docker exec -it shipper bash -c "./generateLog.sh 100 server1.log"
+
 make run-elk:
 	make build-logstash
 	make build-shipper
