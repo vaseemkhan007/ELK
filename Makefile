@@ -47,6 +47,10 @@ generate-server1-logs:
 	docker cp shipper/server1.log shipper:/tmp/server1.log
 	docker exec -it shipper bash -c "./generateLog.sh 100 server1.log"
 
+generate-core-logs:
+	docker cp shipper/core.log shipper:/tmp/core.log
+	docker exec -it shipper bash -c "./generateLog.sh 100 core.log"
+
 make run-elk:
 	make build-logstash
 	make build-shipper
