@@ -44,6 +44,7 @@ generate-auth-logs:
 	docker exec -it shipper bash -c "./dynamicGenerateLog.sh 100 auth.log"
 
 make run-elk:
+	make build-es
 	make build-logstash
 	make build-shipper
 	make run-es
