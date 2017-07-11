@@ -33,7 +33,7 @@ generate-apache-logs:
 
 generate-nginx-logs:
 	docker cp shipper/nginx.log shipper:/tmp/nginx.log
-	docker exec -it shipper bash -c "./generateLog.sh 10 nginx.log"
+	docker exec -it shipper bash -c "./generateLog.sh 100 nginx.log"
 
 generate-uwsgi-logs:
 	docker cp shipper/uwsgi.log shipper:/tmp/uwsgi.log
@@ -41,7 +41,7 @@ generate-uwsgi-logs:
 
 generate-auth-logs:
 	docker cp shipper/auth.log shipper:/tmp/auth.log
-	docker exec -it shipper bash -c "./dynamicGenerateLog.sh 100 auth.log"
+	docker exec -it shipper bash -c "./dynamicGenerateLog.sh 10000 auth.log"
 
 generate-server1-logs:
 	docker cp shipper/server1.log shipper:/tmp/server1.log
