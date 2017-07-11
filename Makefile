@@ -52,6 +52,7 @@ generate-core-logs:
 	docker exec -it shipper bash -c "./generateLog.sh 100 core.log"
 
 make run-elk:
+	make build-es
 	make build-logstash
 	make build-shipper
 	make run-es
