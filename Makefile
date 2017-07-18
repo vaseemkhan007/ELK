@@ -36,7 +36,7 @@ generate-apache-logs:
 
 generate-nginx-logs:
 	docker cp shipper/nginx.log shipper:/tmp/nginx.log
-	docker exec -it shipper bash -c "./generateNginxLog.sh 2 nginx.log"
+	docker exec -it shipper bash -c "./generateNginxLog.sh 30 nginx.log"
 
 generate-uwsgi-logs:
 	docker cp shipper/uwsgi.log shipper:/tmp/uwsgi.log
