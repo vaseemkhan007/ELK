@@ -56,6 +56,7 @@ generate-core-logs:
 
 make run-elk:
 	make build-es
+	make build-kibana
 	make build-logstash
 	make build-shipper
 	make run-es
