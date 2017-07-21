@@ -1,0 +1,3 @@
+RENDERED (%{TIMESTAMP_ISO8601_RENDERED:timestamp} %{LOGLEVEL:loglevel}:: %{SPACE}  %{WORD:logType} %{DATA:uri1} %{DATA} %{DATA:uri2} \(%{BASE10NUM:exec_time})|(%{TIMESTAMP_ISO8601_RENDERED:timestamp} %{LOGLEVEL:loglevel}:: %{SPACE}  %{WORD:logType} %{DATA:uri1} \(%{BASE10NUM:exec_time})
+TIMESTAMP_ISO8601_RENDERED %{YEAR}-%{MONTHNUM}-%{MONTHDAY}[T ]%{HOUR}:?%{MINUTE}(?::?%{SECOND}) ?%{ISO8601_TIMEZONE}?
+
